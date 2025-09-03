@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* 커스텀 CSS 변수 */
+:root {
+  --main-surface-background: #fffffff2;
+  --main-surface-primary: #fffffff2;
+  --border-medium: #0d0d0d;
+  --text-primary: #0d0d0d;
+  --btn-primary-bg: #0d0d0d;
+  --btn-primary-color: #fff;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.42857;
+  --spacing: 0.25rem;
+  --header-h: 3.375rem;
+}
+
+/* 기본 스타일 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 시험 모드 화면 고정 스타일 */
+body.exam-mode {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* 모바일 뷰포트 고정 */
+@media (max-width: 768px) {
+  body.exam-mode {
+    height: 100vh !important;
+    height: calc(var(--vh, 1vh) * 100) !important;
+  }
+  
+  /* 키보드가 올라와도 레이아웃 고정 */
+  body.exam-mode #root {
+    height: 100vh !important;
+    height: calc(var(--vh, 1vh) * 100) !important;
+    overflow: hidden !important;
+  }
+  
+  /* input 포커스 시 스크롤 방지 */
+  body.exam-mode input:focus {
+    position: relative !important;
+  }
+}
+
+/* 커스텀 버튼 스타일 */
+.btn {
+  align-items: center;
+  border-color: transparent;
+  border-radius: 9999px;
+  border-width: 1px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  justify-content: center;
+  line-height: var(--text-sm--line-height);
+  min-height: 38px;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3.5);
+  pointer-events: auto;
+}
