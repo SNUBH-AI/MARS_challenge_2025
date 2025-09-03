@@ -56,14 +56,6 @@ src/
       index.css        # Tailwind 엔트리 + @layer components로 공통 클래스 정의
 
   shared/
-    ui/               # 재사용 가능한 순수 UI (디자인 시스템 느낌)
-      Button.tsx
-      Badge.tsx
-      Card.tsx
-      Table.tsx
-      Input.tsx
-      UploadDropzone.tsx
-      EmptyState.tsx
     api/
       http.ts
       queryClient.ts
