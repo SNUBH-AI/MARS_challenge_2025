@@ -35,7 +35,7 @@ export function LeaderboardTable({ entries }: LeaderboardTableProps) {
       case 3:
         return '🥉'
       default:
-        return rank.toString()
+        return "" + rank.toString()
     }
   }
 
@@ -88,11 +88,11 @@ export function LeaderboardTable({ entries }: LeaderboardTableProps) {
               )}
               onClick={() => handleRowClick(entry)}
             >
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td className="px-6 py-2.5 whitespace-nowrap text-sm text-gray-900">
                 <span className="text-lg">{getRankBadge(entry.rank)}</span>
               </td>
               <td 
-                className="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                className="px-6 py-2.5 whitespace-nowrap text-sm text-gray-900"
                 data-testid="team-name"
               >
                 <div className="flex items-center">
@@ -104,14 +104,14 @@ export function LeaderboardTable({ entries }: LeaderboardTableProps) {
                   )}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td className="px-6 py-2.5 whitespace-nowrap text-sm text-gray-900">
                 <span className="font-mono font-semibold">{entry.score.toFixed(1)}</span>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td className="px-6 py-2.5 whitespace-nowrap text-sm text-gray-900">
                 {entry.submissionCount}
               </td>
               <td 
-                className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                className="px-6 py-2.5 whitespace-nowrap text-sm text-gray-500"
                 data-testid={`last-submission-${entry.id}`}
               >
                 {formatRelativeTime(entry.lastSubmissionAt)}

@@ -139,6 +139,13 @@ out/
 *.tgz
 *.tar.gz
 
+# Image
+*.png
+
+# Cursor
+.playwright-mcp
+
 # Lock files (optional - you might want to commit these)
 # package-lock.json
 # yarn.lock
+

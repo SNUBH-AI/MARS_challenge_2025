@@ -5,9 +5,15 @@ export interface Team {
   email: string
 }
 
-export interface TeamInfo extends Team {
+export interface TeamInfo {
+  teamId: string
+  teamName: string
+  currentRank: number
   bestScore: number
   totalSubmissions: number
+  remainingSubmissions: number
+  lastSubmission: string | null
+  createdAt: string
 }
 
 // Auth related types
@@ -32,18 +38,25 @@ export type SubmissionStatus = 'queued' | 'processing' | 'completed' | 'failed'
 
 export interface Submission {
   id: string
+  teamId: string
   fileName: string
   status: SubmissionStatus
-  score: number | null
+  score: number
   submittedAt: string
   isFinal: boolean
   error?: string
 }
 
 export interface SubmissionDetail extends Submission {
-  logs?: string[]
-  executionTime?: number
-  memoryUsed?: number
+  fileSize: number
+  processingTime: number
+  errorMessage: string | null
+  metrics: {
+    accuracy: number
+    precision: number
+    recall: number
+    f1Score: number
+  } | null
 }
 
 // Leaderboard related types
@@ -59,9 +72,10 @@ export interface LeaderboardEntry {
 // Usage related types
 export interface DailyUsage {
   date: string
-  used: number
-  limit: number
-  remaining: number
+  requestCount: number
+  computeTime: number
+  tokensUsed: number
+  costEstimate: number
 }
 
 // API response types
